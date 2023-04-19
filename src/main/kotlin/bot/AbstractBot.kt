@@ -71,7 +71,7 @@ abstract class AbstractBot(
     protected fun getChannel(name: String): TextChannel? {
         if (channels.containsKey(name)) return channels[name]
 
-        val foundChannels = jda.getTextChannelsByName(name, true) ?: return null
+        val foundChannels = jda.getTextChannelsByName(name, true)
         if (foundChannels.isEmpty()) {
             logger.error("No discord channel found with name: $name")
             return null
