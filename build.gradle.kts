@@ -2,10 +2,29 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.8.20"
+    `maven-publish`
 }
 
-group = "org.behes"
-version = "1.0-SNAPSHOT"
+group = "io.arthur"
+version = "1.0.1"
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/Arthur-IO/DiscordBot")
+            credentials {
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+            }
+        }
+    }
+    publications {
+        register<MavenPublication>("gpr") {
+            from(components["java"])
+        }
+    }
+}
 
 repositories {
     mavenCentral()
