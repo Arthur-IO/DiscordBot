@@ -1,6 +1,6 @@
-package bot
+package io.arthur
 
-import bot.commands.CommandPackage
+import io.arthur.commands.CommandPackage
 import dev.minn.jda.ktx.events.listener
 import dev.minn.jda.ktx.jdabuilder.createJDA
 import dev.minn.jda.ktx.util.SLF4J

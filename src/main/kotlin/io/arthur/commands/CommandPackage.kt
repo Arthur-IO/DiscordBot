@@ -1,4 +1,4 @@
-package bot.commands
+package io.arthur.commands
 
 import net.dv8tion.jda.api.JDA
 

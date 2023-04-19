@@ -14,8 +14,8 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/Arthur-IO/DiscordBot")
             credentials {
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+                username = project.findProperty("gpr.user2") as String? ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key2") as String? ?: System.getenv("TOKEN")
             }
         }
     }
