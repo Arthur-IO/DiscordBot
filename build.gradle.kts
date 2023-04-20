@@ -3,10 +3,11 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.8.20"
     `maven-publish`
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 group = "io.arthur"
-version = "1.0.2"
+version = "1.0.5"
 
 publishing {
     repositories {
@@ -20,8 +21,9 @@ publishing {
         }
     }
     publications {
-        register<MavenPublication>("gpr") {
-            from(components["java"])
+        register<MavenPublication>("shadow") {
+            artifactId = "discord-bot"
+            artifact(tasks["shadowJar"])
         }
     }
 }
@@ -45,4 +47,9 @@ tasks.test {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
+}
+
+tasks.shadowJar {
+    archiveBaseName.set("discord-bot")
+    archiveClassifier.set("")
 }
